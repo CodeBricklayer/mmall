@@ -9,6 +9,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * 后台商品新增，保存，更新，上下架功能开发
+ *
+ * @author PangT
+ * @since 2018/12/26
+ */
 @Service("iProductService")
 public class IProductServiceImpl implements IProductService {
 

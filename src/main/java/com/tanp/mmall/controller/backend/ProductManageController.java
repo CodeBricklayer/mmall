@@ -31,7 +31,7 @@ public class ProductManageController {
     private IProductService iProductService;
 
     /**
-     * 增加或者修改商品
+     * 增加或者更新商品
      *
      * @param session 会话对象
      * @param product 商品
@@ -53,7 +53,7 @@ public class ProductManageController {
     }
 
     /**
-     * 修改销售商品状态
+     * 修改销售商品状态,即商品上下架
      *
      * @param session   会话对象
      * @param productId 商品id
