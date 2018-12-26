@@ -20,6 +20,9 @@ public enum ResponseCode {
      * 需要登录
      */
     NEED_LOGIN(10, "NEED_LOGIN"),
+    /**
+     * 参数不合法
+     */
     ILLEGAL_ARGUMENT(2, "ILLEGAL_ARGUMENT");
 
     private final int code;
