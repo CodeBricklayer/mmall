@@ -102,13 +102,13 @@ public class CategoryManageController {
     }
 
     /**
-     * 获取所有子节点和递归子节点的信息
+     * 查询当前节点的id和递归子节点的id
      *
      * @param session    会话对象
      * @param categoryId 品类id
      * @return 返回结果集
      */
-    @RequestMapping(value = "getDeep_Category.do", method = RequestMethod.GET)
+    @RequestMapping(value = "getDeepCategory.do", method = RequestMethod.GET)
     @ResponseBody
     public ServerResponse getCategoryAndDeepChildrenCategory(HttpSession session, @RequestParam(value = "categoryId", defaultValue = "0") Integer categoryId) {
         User user = (User) session.getAttribute(Const.CURRENT_USER);
@@ -117,6 +117,7 @@ public class CategoryManageController {
         }
         if (iUserService.checkAdminRole(user).isSuccess()) {
             //查询当前节点的id和递归子节点的id
+            //0-->10000-->100000
             return iCategoryService.selectCategoryAndChildrentById(categoryId);
         } else {
             return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
