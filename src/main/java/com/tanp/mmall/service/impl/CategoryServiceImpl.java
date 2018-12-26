@@ -33,7 +33,7 @@ public class CategoryServiceImpl implements ICategoryService {
     @Override
     public ServerResponse addCategory(String categoryName, Integer parentId) {
         if (parentId == null || StringUtils.isBlank(categoryName)) {
-            return ServerResponse.createByErrorMessgae("添加商品参数错误");
+            return ServerResponse.createByErrorMessage("添加商品参数错误");
         }
         Category category = new Category();
         category.setName(categoryName);
@@ -44,13 +44,13 @@ public class CategoryServiceImpl implements ICategoryService {
         if (rowCount > 0) {
             return ServerResponse.createBySuccessMessage("添加商品分类成功");
         }
-        return ServerResponse.createByErrorMessgae("添加商品分类错误");
+        return ServerResponse.createByErrorMessage("添加商品分类错误");
     }
 
     @Override
     public ServerResponse updateCategoryName(Integer categoryId, String categoryName) {
         if (categoryId == null || StringUtils.isBlank(categoryName)) {
-            return ServerResponse.createByErrorMessgae("更新品类参数错误");
+            return ServerResponse.createByErrorMessage("更新品类参数错误");
         }
         Category category = new Category();
         category.setId(categoryId);
@@ -59,7 +59,7 @@ public class CategoryServiceImpl implements ICategoryService {
         if (rowCount > 0) {
             return ServerResponse.createBySuccessMessage("更新品类名称成功");
         }
-        return ServerResponse.createByErrorMessgae("更新品类名称失败");
+        return ServerResponse.createByErrorMessage("更新品类名称失败");
     }
 
     /**
