@@ -1,4 +1,5 @@
 package com.tanp.mmall.pojo;
+
 import java.util.Date;
 
 public class User {

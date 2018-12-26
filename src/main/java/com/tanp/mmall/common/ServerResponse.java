@@ -80,11 +80,11 @@ public class ServerResponse<T> implements Serializable {
         return new ServerResponse<T>(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getDesc());
     }
 
-    public static <T> ServerResponse<T> createByErrorMessgae(String errorMesage) {
+    public static <T> ServerResponse<T> createByErrorMessage(String errorMesage) {
         return new ServerResponse<T>(ResponseCode.ERROR.getCode(), errorMesage);
     }
 
-    public static <T> ServerResponse<T> createByErrorCodeMessgae(int errorCode, String errorMesage) {
+    public static <T> ServerResponse<T> createByErrorCodeMessage(int errorCode, String errorMesage) {
         return new ServerResponse<T>(errorCode, errorMesage);
     }
 

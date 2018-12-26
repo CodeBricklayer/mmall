@@ -41,7 +41,7 @@ public class UserManageController {
                 session.setAttribute(Const.CURRENT_USER, user);
                 return response;
             } else {
-                return ServerResponse.createByErrorMessgae("不是管理员，无法登录");
+                return ServerResponse.createByErrorMessage("不是管理员，无法登录");
             }
         }
         return response;
