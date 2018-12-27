@@ -27,7 +27,7 @@ import java.util.List;
  * @since 2018/12/26
  */
 @Service("iProductService")
-public class IProductServiceImpl implements IProductService {
+public class ProductServiceImpl implements IProductService {
 
     @Autowired
     private ProductMapper productMapper;
@@ -123,11 +123,11 @@ public class IProductServiceImpl implements IProductService {
         //填充自己的sql查询逻辑
         //pageHelper-收尾
 
-        PageHelper.startPage(pageNum,pageSize);
+        PageHelper.startPage(pageNum, pageSize);
         List<Product> productList = productMapper.selectList();
 
         List<ProductListVo> productListVoList = Lists.newArrayList();
-        for (Product productItem:productList){
+        for (Product productItem : productList) {
             ProductListVo productListVo = assembleProductListVo(productItem);
             productListVoList.add(productListVo);
         }
@@ -136,7 +136,7 @@ public class IProductServiceImpl implements IProductService {
         return ServerResponse.createBySuccess(pageResult);
     }
 
-    private ProductListVo assembleProductListVo(Product product){
+    private ProductListVo assembleProductListVo(Product product) {
         ProductListVo productListVo = new ProductListVo();
         productListVo.setId(product.getId());
         productListVo.setName(product.getName());
@@ -147,5 +147,22 @@ public class IProductServiceImpl implements IProductService {
         productListVo.setSubTitle(product.getSubtitle());
         productListVo.setStatus(product.getStatus());
         return productListVo;
+    }
+
+    @Override
+    public ServerResponse<PageInfo> searchProduct(String productName, Integer productId, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        if (StringUtils.isNotBlank(productName)) {
+            productName = new StringBuilder().append("%").append(productName).append("%").toString();
+        }
+        List<Product> productList = productMapper.selectByNameAndProductId(productName, productId);
+        List<ProductListVo> productListVoList = Lists.newArrayList();
+        for (Product productItem : productList) {
+            ProductListVo productListVo = assembleProductListVo(productItem);
+            productListVoList.add(productListVo);
+        }
+        PageInfo pageResult = new PageInfo(productList);
+        pageResult.setList(productListVoList);
+        return ServerResponse.createBySuccess(pageResult);
     }
 }

@@ -1,5 +1,6 @@
 package com.tanp.mmall.controller.backend;
 
+import com.github.pagehelper.PageInfo;
 import com.tanp.mmall.common.Const;
 import com.tanp.mmall.common.ResponseCode;
 import com.tanp.mmall.common.ServerResponse;
@@ -117,6 +118,34 @@ public class ProductManageController {
         if (iUserService.checkAdminRole(user).isSuccess()) {
             //填充业务
             return iProductService.getProductList(pageNum, pageSize);
+        } else {
+            return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
+        }
+    }
+
+    /**
+     * 查询商品
+     *
+     * @param session     会话对象
+     * @param productName 商品名称
+     * @param productId   商品id
+     * @param pageNum     页码
+     * @param pageSize    页面数量
+     * @return 返回查询结果
+     */
+    @RequestMapping(value = "/search.do", method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse productSearch(HttpSession session,
+                                        String productName, Integer productId,
+                                        @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+                                        @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录，请登录管理员");
+        }
+        if (iUserService.checkAdminRole(user).isSuccess()) {
+            //填充业务
+            return iProductService.searchProduct(productName, productId, pageNum, pageSize);
         } else {
             return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
         }
