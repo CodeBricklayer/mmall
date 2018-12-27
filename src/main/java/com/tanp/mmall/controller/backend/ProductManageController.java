@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -81,7 +82,7 @@ public class ProductManageController {
      * @param productId 商品Id
      * @return 返回获取结果
      */
-    @RequestMapping(value = "detail.do", method = RequestMethod.GET)
+    @RequestMapping(value = "/detail.do", method = RequestMethod.GET)
     @ResponseBody
     public ServerResponse getDetail(HttpSession session, Integer productId) {
         User user = (User) session.getAttribute(Const.CURRENT_USER);
@@ -91,6 +92,31 @@ public class ProductManageController {
         if (iUserService.checkAdminRole(user).isSuccess()) {
             //填充业务
             return iProductService.manageProductDetail(productId);
+        } else {
+            return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
+        }
+    }
+
+    /**
+     * 后台商品列表
+     *
+     * @param session  会话对象
+     * @param pageNum  页码
+     * @param pageSize 页面数量
+     * @return 返回列表数据
+     */
+    @RequestMapping(value = "/list.do", method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse getList(HttpSession session,
+                                  @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+                                  @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录，请登录管理员");
+        }
+        if (iUserService.checkAdminRole(user).isSuccess()) {
+            //填充业务
+            return iProductService.getProductList(pageNum, pageSize);
         } else {
             return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
         }
