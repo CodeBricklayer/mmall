@@ -74,4 +74,25 @@ public class ProductManageController {
         }
     }
 
+    /**
+     * 获取商品详情
+     *
+     * @param session   会话对象
+     * @param productId 商品Id
+     * @return 返回获取结果
+     */
+    @RequestMapping(value = "detail.do", method = RequestMethod.GET)
+    @ResponseBody
+    public ServerResponse getDetail(HttpSession session, Integer productId) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录，请登录管理员");
+        }
+        if (iUserService.checkAdminRole(user).isSuccess()) {
+            //填充业务
+            return iProductService.manageProductDetail(productId);
+        } else {
+            return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
+        }
+    }
 }
