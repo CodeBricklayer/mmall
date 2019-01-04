@@ -1,5 +1,9 @@
 package com.tanp.mmall.common;
 
+import com.google.common.collect.Sets;
+
+import java.util.Set;
+
 /**
  * @author PangT
  * @since 2018/12/18
@@ -19,5 +23,28 @@ public class Const {
          * 管理员
          */
         int ROLE_ADMIN = 1;
+    }
+
+    public interface ProductListOrderBy{
+        Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc","price_asc");
+    }
+
+    public enum ProductStatusEnum{
+        ON_SALE(1,"在线");
+        private String value;
+        private int code;
+
+        ProductStatusEnum( int code,String value) {
+            this.code = code;
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public int getCode() {
+            return code;
+        }
     }
 }
