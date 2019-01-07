@@ -45,4 +45,38 @@ public class CartController {
         return iCartService.add(user.getId(), productId, count);
     }
 
+    /**
+     * 更新购物车商品
+     *
+     * @param session   会话对象
+     * @param count     数量
+     * @param productId 商品id
+     * @return 返回结果
+     */
+    @RequestMapping(value = "/update.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse<CartVo> update(HttpSession session, Integer count, Integer productId) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+        return iCartService.update(user.getId(), productId, count);
+    }
+
+    /**
+     * 删除购物车商品
+     *
+     * @param session    会话对象
+     * @param productIds 商品id
+     * @return 返回结果
+     */
+    @RequestMapping(value = "/deleteProduct.do", method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse<CartVo> deleteProduct(HttpSession session, String productIds) {
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), ResponseCode.NEED_LOGIN.getDesc());
+        }
+        return iCartService.deleteProduct(user.getId(), productIds);
+    }
 }
