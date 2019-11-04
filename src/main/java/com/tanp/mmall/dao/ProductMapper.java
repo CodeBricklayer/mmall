@@ -6,21 +6,24 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface ProductMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Product record);
+  int deleteByPrimaryKey(Integer id);
 
-    int insertSelective(Product record);
+  int insert(Product record);
 
-    Product selectByPrimaryKey(Integer id);
+  int insertSelective(Product record);
 
-    int updateByPrimaryKeySelective(Product record);
+  Product selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKey(Product record);
+  int updateByPrimaryKeySelective(Product record);
 
-    List<Product> selectList();
+  int updateByPrimaryKey(Product record);
 
-    List<Product> selectByNameAndProductId(@Param("productName") String productName, @Param("productId") Integer productId);
+  List<Product> selectList();
 
-    List<Product> selectByNameAndCategoryIds(@Param("productName")String productName,@Param("categoryIdList")List<Integer> categoryIdList);
+  List<Product> selectByNameAndProductId(@Param("productName") String productName,
+      @Param("productId") Integer productId);
+
+  List<Product> selectByNameAndCategoryIds(@Param("productName") String productName,
+      @Param("categoryIdList") List<Integer> categoryIdList);
 }

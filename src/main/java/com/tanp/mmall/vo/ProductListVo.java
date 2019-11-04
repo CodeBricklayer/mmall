@@ -3,83 +3,84 @@ package com.tanp.mmall.vo;
 import java.math.BigDecimal;
 
 public class ProductListVo {
-    private Integer id;
 
-    private Integer categoryId;
+  private Integer id;
 
-    private String name;
+  private Integer categoryId;
 
-    private String subTitle;
+  private String name;
 
-    private String mainImage;
+  private String subTitle;
 
-    private BigDecimal price;
+  private String mainImage;
 
-    private Integer status;
+  private BigDecimal price;
 
-    private String imageHost;
+  private Integer status;
 
-    public Integer getId() {
-        return id;
-    }
+  private String imageHost;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public Integer getCategoryId() {
-        return categoryId;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
+  public Integer getCategoryId() {
+    return categoryId;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setCategoryId(Integer categoryId) {
+    this.categoryId = categoryId;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getSubTitle() {
-        return subTitle;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setSubTitle(String subTitle) {
-        this.subTitle = subTitle;
-    }
+  public String getSubTitle() {
+    return subTitle;
+  }
 
-    public String getMainImage() {
-        return mainImage;
-    }
+  public void setSubTitle(String subTitle) {
+    this.subTitle = subTitle;
+  }
 
-    public void setMainImage(String mainImage) {
-        this.mainImage = mainImage;
-    }
+  public String getMainImage() {
+    return mainImage;
+  }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+  public void setMainImage(String mainImage) {
+    this.mainImage = mainImage;
+  }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
+  public BigDecimal getPrice() {
+    return price;
+  }
 
-    public Integer getStatus() {
-        return status;
-    }
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+  public Integer getStatus() {
+    return status;
+  }
 
-    public String getImageHost() {
-        return imageHost;
-    }
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
 
-    public void setImageHost(String imageHost) {
-        this.imageHost = imageHost;
-    }
+  public String getImageHost() {
+    return imageHost;
+  }
+
+  public void setImageHost(String imageHost) {
+    this.imageHost = imageHost;
+  }
 }

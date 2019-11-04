@@ -4,35 +4,36 @@ import com.tanp.mmall.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(User record);
+  int deleteByPrimaryKey(Integer id);
 
-    int insertSelective(User record);
+  int insert(User record);
 
-    User selectByPrimaryKey(Integer id);
+  int insertSelective(User record);
 
-    int updateByPrimaryKeySelective(User record);
+  User selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKey(User record);
+  int updateByPrimaryKeySelective(User record);
 
-    int checkUsername(String username);
+  int updateByPrimaryKey(User record);
 
-    User selectLogin(@Param("username") String username,
-                     @Param("password") String password);
+  int checkUsername(String username);
 
-    int checkEmail(String email);
+  User selectLogin(@Param("username") String username,
+      @Param("password") String password);
 
-    String selectQuestionByUsername(String username);
+  int checkEmail(String email);
 
-    int checkAnswer(@Param("username") String username,
-                    @Param("question") String question,
-                    @Param("answer") String answer);
+  String selectQuestionByUsername(String username);
 
-    int updatePasswordByUsername(@Param("username") String username,
-                                 @Param("passwordNew") String passwordNew);
+  int checkAnswer(@Param("username") String username,
+      @Param("question") String question,
+      @Param("answer") String answer);
 
-    int checkEmailByUserId(@Param("email") String email,
-                           @Param("userId") Integer userId);
+  int updatePasswordByUsername(@Param("username") String username,
+      @Param("passwordNew") String passwordNew);
+
+  int checkEmailByUserId(@Param("email") String email,
+      @Param("userId") Integer userId);
 
 }

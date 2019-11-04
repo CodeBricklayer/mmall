@@ -6,27 +6,31 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface CartMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Cart record);
+  int deleteByPrimaryKey(Integer id);
 
-    int insertSelective(Cart record);
+  int insert(Cart record);
 
-    Cart selectByPrimaryKey(Integer id);
+  int insertSelective(Cart record);
 
-    int updateByPrimaryKeySelective(Cart record);
+  Cart selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKey(Cart record);
+  int updateByPrimaryKeySelective(Cart record);
 
-    Cart selectCartByUserIdProductId(@Param("userId") Integer userId, @Param("productId") Integer productId);
+  int updateByPrimaryKey(Cart record);
 
-    List<Cart> selectCartByUserId(Integer userId);
+  Cart selectCartByUserIdProductId(@Param("userId") Integer userId,
+      @Param("productId") Integer productId);
 
-    int selectCartProductCheckedStatusByUserId(Integer userId);
+  List<Cart> selectCartByUserId(Integer userId);
 
-    int deleteByUserIdProductIds(@Param("userId") Integer userId, @Param("productIdList") List<String> productIdList);
+  int selectCartProductCheckedStatusByUserId(Integer userId);
 
-    int checkedOrUncheckedProduct(@Param("userId") Integer userId, @Param("productId") Integer productId, @Param("checked") Integer checked);
+  int deleteByUserIdProductIds(@Param("userId") Integer userId,
+      @Param("productIdList") List<String> productIdList);
 
-    int selectCartProductCount(@Param("userId") Integer userId);
+  int checkedOrUncheckedProduct(@Param("userId") Integer userId,
+      @Param("productId") Integer productId, @Param("checked") Integer checked);
+
+  int selectCartProductCount(@Param("userId") Integer userId);
 }

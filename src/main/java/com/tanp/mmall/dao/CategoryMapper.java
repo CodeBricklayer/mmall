@@ -5,17 +5,18 @@ import com.tanp.mmall.pojo.Category;
 import java.util.List;
 
 public interface CategoryMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Category record);
+  int deleteByPrimaryKey(Integer id);
 
-    int insertSelective(Category record);
+  int insert(Category record);
 
-    Category selectByPrimaryKey(Integer id);
+  int insertSelective(Category record);
 
-    int updateByPrimaryKeySelective(Category record);
+  Category selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKey(Category record);
+  int updateByPrimaryKeySelective(Category record);
 
-    List<Category> selectCategoryChildrenByParentId(Integer parentId);
+  int updateByPrimaryKey(Category record);
+
+  List<Category> selectCategoryChildrenByParentId(Integer parentId);
 }

@@ -3,15 +3,16 @@ package com.tanp.mmall.dao;
 import com.tanp.mmall.pojo.PayInfo;
 
 public interface PayInfoMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(PayInfo record);
+  int deleteByPrimaryKey(Integer id);
 
-    int insertSelective(PayInfo record);
+  int insert(PayInfo record);
 
-    PayInfo selectByPrimaryKey(Integer id);
+  int insertSelective(PayInfo record);
 
-    int updateByPrimaryKeySelective(PayInfo record);
+  PayInfo selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKey(PayInfo record);
+  int updateByPrimaryKeySelective(PayInfo record);
+
+  int updateByPrimaryKey(PayInfo record);
 }

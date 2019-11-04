@@ -6,23 +6,26 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface ShippingMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Shipping record);
+  int deleteByPrimaryKey(Integer id);
 
-    int insertSelective(Shipping record);
+  int insert(Shipping record);
 
-    Shipping selectByPrimaryKey(Integer id);
+  int insertSelective(Shipping record);
 
-    int updateByPrimaryKeySelective(Shipping record);
+  Shipping selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKey(Shipping record);
+  int updateByPrimaryKeySelective(Shipping record);
 
-    int deleteByShippingUserId(@Param("userId") Integer userId, @Param("shippingId") Integer shippingId);
+  int updateByPrimaryKey(Shipping record);
 
-    int updateByShipping(Shipping record);
+  int deleteByShippingUserId(@Param("userId") Integer userId,
+      @Param("shippingId") Integer shippingId);
 
-    Shipping selectByShippingIdUserId(@Param("userId") Integer userId, @Param("shippingId") Integer shippingId);
+  int updateByShipping(Shipping record);
 
-    List<Shipping> selectByUserId(@Param("userId") Integer userId);
+  Shipping selectByShippingIdUserId(@Param("userId") Integer userId,
+      @Param("shippingId") Integer shippingId);
+
+  List<Shipping> selectByUserId(@Param("userId") Integer userId);
 }

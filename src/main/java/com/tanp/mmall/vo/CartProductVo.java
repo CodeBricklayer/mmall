@@ -3,125 +3,126 @@ package com.tanp.mmall.vo;
 import java.math.BigDecimal;
 
 public class CartProductVo {
-    //结合了产品和购物车的一个抽象对象
-    private Integer id;
-    private Integer userId;
-    private Integer productId;
-    //购物车中此商品的数量
-    private Integer quantity;
-    private String productName;
-    private String productSubtitle;
-    private String productMainImage;
-    private BigDecimal productPrice;
-    private Integer productStatus;
-    private BigDecimal productTotalPrice;
-    private Integer productStock;
-    //此商品是否勾选
-    private Integer productChecked;
-    //限制数量的一个返回结果
-    private String limitQuantity;
 
-    public Integer getId() {
-        return id;
-    }
+  //结合了产品和购物车的一个抽象对象
+  private Integer id;
+  private Integer userId;
+  private Integer productId;
+  //购物车中此商品的数量
+  private Integer quantity;
+  private String productName;
+  private String productSubtitle;
+  private String productMainImage;
+  private BigDecimal productPrice;
+  private Integer productStatus;
+  private BigDecimal productTotalPrice;
+  private Integer productStock;
+  //此商品是否勾选
+  private Integer productChecked;
+  //限制数量的一个返回结果
+  private String limitQuantity;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public Integer getUserId() {
-        return userId;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+  public Integer getUserId() {
+    return userId;
+  }
 
-    public Integer getProductId() {
-        return productId;
-    }
+  public void setUserId(Integer userId) {
+    this.userId = userId;
+  }
 
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
+  public Integer getProductId() {
+    return productId;
+  }
 
-    public Integer getQuantity() {
-        return quantity;
-    }
+  public void setProductId(Integer productId) {
+    this.productId = productId;
+  }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+  public Integer getQuantity() {
+    return quantity;
+  }
 
-    public String getProductName() {
-        return productName;
-    }
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
+  }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
+  public String getProductName() {
+    return productName;
+  }
 
-    public String getProductSubtitle() {
-        return productSubtitle;
-    }
+  public void setProductName(String productName) {
+    this.productName = productName;
+  }
 
-    public void setProductSubtitle(String productSubtitle) {
-        this.productSubtitle = productSubtitle;
-    }
+  public String getProductSubtitle() {
+    return productSubtitle;
+  }
 
-    public String getProductMainImage() {
-        return productMainImage;
-    }
+  public void setProductSubtitle(String productSubtitle) {
+    this.productSubtitle = productSubtitle;
+  }
 
-    public void setProductMainImage(String productMainImage) {
-        this.productMainImage = productMainImage;
-    }
+  public String getProductMainImage() {
+    return productMainImage;
+  }
 
-    public BigDecimal getProductPrice() {
-        return productPrice;
-    }
+  public void setProductMainImage(String productMainImage) {
+    this.productMainImage = productMainImage;
+  }
 
-    public void setProductPrice(BigDecimal productPrice) {
-        this.productPrice = productPrice;
-    }
+  public BigDecimal getProductPrice() {
+    return productPrice;
+  }
 
-    public Integer getProductStatus() {
-        return productStatus;
-    }
+  public void setProductPrice(BigDecimal productPrice) {
+    this.productPrice = productPrice;
+  }
 
-    public void setProductStatus(Integer productStatus) {
-        this.productStatus = productStatus;
-    }
+  public Integer getProductStatus() {
+    return productStatus;
+  }
 
-    public BigDecimal getProductTotalPrice() {
-        return productTotalPrice;
-    }
+  public void setProductStatus(Integer productStatus) {
+    this.productStatus = productStatus;
+  }
 
-    public void setProductTotalPrice(BigDecimal productTotalPrice) {
-        this.productTotalPrice = productTotalPrice;
-    }
+  public BigDecimal getProductTotalPrice() {
+    return productTotalPrice;
+  }
 
-    public Integer getProductStock() {
-        return productStock;
-    }
+  public void setProductTotalPrice(BigDecimal productTotalPrice) {
+    this.productTotalPrice = productTotalPrice;
+  }
 
-    public void setProductStock(Integer productStock) {
-        this.productStock = productStock;
-    }
+  public Integer getProductStock() {
+    return productStock;
+  }
 
-    public Integer getProductChecked() {
-        return productChecked;
-    }
+  public void setProductStock(Integer productStock) {
+    this.productStock = productStock;
+  }
 
-    public void setProductChecked(Integer productChecked) {
-        this.productChecked = productChecked;
-    }
+  public Integer getProductChecked() {
+    return productChecked;
+  }
 
-    public String getLimitQuantity() {
-        return limitQuantity;
-    }
+  public void setProductChecked(Integer productChecked) {
+    this.productChecked = productChecked;
+  }
 
-    public void setLimitQuantity(String limitQuantity) {
-        this.limitQuantity = limitQuantity;
-    }
+  public String getLimitQuantity() {
+    return limitQuantity;
+  }
+
+  public void setLimitQuantity(String limitQuantity) {
+    this.limitQuantity = limitQuantity;
+  }
 }

@@ -3,15 +3,16 @@ package com.tanp.mmall.dao;
 import com.tanp.mmall.pojo.Order;
 
 public interface OrderMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Order record);
+  int deleteByPrimaryKey(Integer id);
 
-    int insertSelective(Order record);
+  int insert(Order record);
 
-    Order selectByPrimaryKey(Integer id);
+  int insertSelective(Order record);
 
-    int updateByPrimaryKeySelective(Order record);
+  Order selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKey(Order record);
+  int updateByPrimaryKeySelective(Order record);
+
+  int updateByPrimaryKey(Order record);
 }

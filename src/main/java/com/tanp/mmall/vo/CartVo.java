@@ -4,41 +4,42 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class CartVo {
-    private List<CartProductVo> cartProductVoList;
-    private BigDecimal cartTotalPrice;
-    //是否已经都勾选
-    private Boolean allChecked;
-    private String imageHost;
 
-    public List<CartProductVo> getCartProductVoList() {
-        return cartProductVoList;
-    }
+  private List<CartProductVo> cartProductVoList;
+  private BigDecimal cartTotalPrice;
+  //是否已经都勾选
+  private Boolean allChecked;
+  private String imageHost;
 
-    public void setCartProductVoList(List<CartProductVo> cartProductVoList) {
-        this.cartProductVoList = cartProductVoList;
-    }
+  public List<CartProductVo> getCartProductVoList() {
+    return cartProductVoList;
+  }
 
-    public BigDecimal getCartTotalPrice() {
-        return cartTotalPrice;
-    }
+  public void setCartProductVoList(List<CartProductVo> cartProductVoList) {
+    this.cartProductVoList = cartProductVoList;
+  }
 
-    public void setCartTotalPrice(BigDecimal cartTotalPrice) {
-        this.cartTotalPrice = cartTotalPrice;
-    }
+  public BigDecimal getCartTotalPrice() {
+    return cartTotalPrice;
+  }
 
-    public Boolean getAllChecked() {
-        return allChecked;
-    }
+  public void setCartTotalPrice(BigDecimal cartTotalPrice) {
+    this.cartTotalPrice = cartTotalPrice;
+  }
 
-    public void setAllChecked(Boolean allChecked) {
-        this.allChecked = allChecked;
-    }
+  public Boolean getAllChecked() {
+    return allChecked;
+  }
 
-    public String getImageHost() {
-        return imageHost;
-    }
+  public void setAllChecked(Boolean allChecked) {
+    this.allChecked = allChecked;
+  }
 
-    public void setImageHost(String imageHost) {
-        this.imageHost = imageHost;
-    }
+  public String getImageHost() {
+    return imageHost;
+  }
+
+  public void setImageHost(String imageHost) {
+    this.imageHost = imageHost;
+  }
 }
