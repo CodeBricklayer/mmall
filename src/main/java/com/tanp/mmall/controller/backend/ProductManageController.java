@@ -179,11 +179,11 @@ public class ProductManageController {
         }
         if (iUserService.checkAdminRole(user).isSuccess()) {
             String path = request.getSession().getServletContext().getRealPath("upload");
-            String tartgetFileName = iFileService.upload(file, path);
-            String url = PropertiesUtil.getProperty("ftp.server.http.prefix") + tartgetFileName;
+            String targetFileName = iFileService.upload(file, path);
+            String url = PropertiesUtil.getProperty("ftp.server.http.prefix") + targetFileName;
 
             Map fileMap = Maps.newHashMap();
-            fileMap.put("uri", tartgetFileName);
+            fileMap.put("uri", targetFileName);
             fileMap.put("url", url);
             return ServerResponse.createBySuccess(fileMap);
         } else {
@@ -200,9 +200,9 @@ public class ProductManageController {
      * @param response 响应
      * @return 返回结果
      */
-    @RequestMapping(value = "/richtextImgUpload.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/richTextImgUpload.do", method = RequestMethod.POST)
     @ResponseBody
-    public Map richtextImgUpload(HttpSession session, @RequestParam(value = "upload_file", required = false) MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
+    public Map richTextImgUpload(HttpSession session, @RequestParam(value = "upload_file", required = false) MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
         Map resultMap = Maps.newHashMap();
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
