@@ -1,6 +1,7 @@
 package com.tanp.mmall.dao;
 
 import com.tanp.mmall.pojo.Order;
+import org.apache.ibatis.annotations.Param;
 
 public interface OrderMapper {
 
@@ -15,4 +16,7 @@ public interface OrderMapper {
   int updateByPrimaryKeySelective(Order record);
 
   int updateByPrimaryKey(Order record);
+
+  //根据订单号和用户的Id来查询订单
+  Order selectByUserIdAndOrderNo(@Param("userId") Integer userId, @Param("orderNo") Long orderNo);
 }
