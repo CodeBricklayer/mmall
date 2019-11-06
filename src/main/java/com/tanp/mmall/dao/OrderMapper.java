@@ -1,6 +1,7 @@
 package com.tanp.mmall.dao;
 
 import com.tanp.mmall.pojo.Order;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface OrderMapper {
@@ -30,4 +31,18 @@ public interface OrderMapper {
    * @description 根据订单号来查询订单是否存在
    */
   Order selectByOrderNo(Long orderNo);
+
+
+  /**
+   * @param userId 用户ID
+   * @return 用户订单列表
+   * @description 根据用户Id来查询订单列表
+   */
+  List<Order> getOrderListByUserId(Integer userId);
+
+  /**
+   * @return 订单列表
+   * @description 管理员查看订单列表实现
+   */
+  List<Order> selectAllOrder();
 }

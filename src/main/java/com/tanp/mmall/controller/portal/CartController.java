@@ -27,6 +27,25 @@ public class CartController {
   @Autowired
   private ICartService iCartService;
 
+
+  /**
+   * 查询购物车中商品
+   *
+   * @param session 会话对象
+   * @return 返回结果
+   */
+  @RequestMapping("/list.do")
+  @ResponseBody
+  public ServerResponse<CartVo> list(HttpSession session) {
+    User user = (User) session.getAttribute(Const.CURRENT_USER);
+
+    if (user == null) {
+      return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),
+          ResponseCode.NEED_LOGIN.getDesc());
+    }
+    return iCartService.list(user.getId());
+  }
+
   /**
    * 购物车商品添加
    *
