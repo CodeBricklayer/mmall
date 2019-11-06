@@ -32,7 +32,7 @@
       update_time)
     values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{status,jdbcType=BIT}, #{sortOrder,jdbcType=INTEGER}, now(),
-      #{updateTime,jdbcType=TIMESTAMP})
+      now())
   </insert>
   <insert id="insertSelective" parameterType="com.tanp.mmall.pojo.Category">
     insert into mmall_category
@@ -52,12 +52,8 @@
       <if test="sortOrder != null">
         sort_order,
       </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
+      create_time,
+      update_time
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -75,12 +71,8 @@
       <if test="sortOrder != null">
         #{sortOrder,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null">
-        now(),
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
+      now(),
+      now()
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.tanp.mmall.pojo.Category">
@@ -98,12 +90,7 @@
       <if test="sortOrder != null">
         sort_order = #{sortOrder,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null">
-        now(),
-      </if>
+      now()
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -113,7 +100,6 @@
       name = #{name,jdbcType=VARCHAR},
       status = #{status,jdbcType=BIT},
       sort_order = #{sortOrder,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
