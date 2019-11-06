@@ -17,6 +17,17 @@ public interface OrderMapper {
 
   int updateByPrimaryKey(Order record);
 
-  //根据订单号和用户的Id来查询订单
+  /**
+   * @param orderNo 订单号
+   * @param userId 用户ID
+   * @description 根据用户的Id和订单号获取订单详情
+   */
   Order selectByUserIdAndOrderNo(@Param("userId") Integer userId, @Param("orderNo") Long orderNo);
+
+
+  /**
+   * @param orderNo 订单号
+   * @description 根据订单号来查询订单是否存在
+   */
+  Order selectByOrderNo(Long orderNo);
 }
