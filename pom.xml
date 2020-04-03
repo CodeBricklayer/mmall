@@ -90,9 +90,10 @@
 
     <dependency>
       <groupId>org.codehaus.jackson</groupId>
-      <artifactId>jackson-mapper-asl</artifactId>
-      <version>1.9.13</version>
+      <artifactId>com.springsource.org.codehaus.jackson.mapper</artifactId>
+      <version>1.4.3</version>
     </dependency>
+
 
     <dependency>
       <groupId>commons-dbcp</groupId>
